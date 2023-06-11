@@ -167,7 +167,7 @@ def classify_image(image_path):
 def pred_disease(plant_type, image_path):
     model = get_model(plant_type)
     if model is None:
-        return "Unknown Disease", 'unknown.html'
+        return "Unknown Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/unknown.html'
 
     # Load the image and resize it
     target_size = (128, 128)  # Default target size for Tomato, can be adjusted for other plant types
@@ -196,7 +196,7 @@ def pred_disease(plant_type, image_path):
         pred_label, template = plants[plant_type]['classes'][pred_class]
         return pred_label, template
     else:
-        return "Unknown Disease", 'unknown.html'
+        return "Unknown Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/unknown.html'
 
 def main():
     # Load the models
