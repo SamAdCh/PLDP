@@ -1,5 +1,4 @@
-import sqlite3
-from flask import Flask, render_template, request
+import streamlit as st
 import numpy as np
 import os
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
@@ -115,27 +114,27 @@ def load_models():
         model_path = config['model_path']
         model = load_model(model_path)
         models[plant] = model
-        print(f"Model for {plant} loaded successfully")
+        st.write(f"Model for {plant} loaded successfully")
 
 def get_model(plant_type):
     if plant_type in models:
         return models[plant_type]
     else:
         return None
-    
+
 def classify_image(image_path):
     # Load the classification model from C:/Desktop
     classification_model_path = 'https://github.com/SamAdCh/PLDP/blob/master/leafdetection.h5'
     classification_model = load_model(classification_model_path)
-    print("Classification model loaded successfully")
+    st.write("Classification model loaded successfully")
 
     # Load the image and resize it
     target_size = (128, 128)
     try:
         test_image = load_img(image_path, target_size=target_size)
-        print("@@ Got Image for classification")
+        st.write("@@ Got Image for classification")
     except Exception as e:
-        print("@@ Error loading image:", str(e))
+        st.write("@@ Error loading image:", str(e))
         return "Unknown"
 
     # Convert the image to a numpy array and normalize it
@@ -144,7 +143,7 @@ def classify_image(image_path):
 
     # Make predictions using the classification model
     result = classification_model.predict(test_image)
-    print('@@ Classification result:', result)
+    st.write('@@ Classification result:', result)
 
     # Get the predicted class
     pred_class = np.argmax(result, axis=1)[0]  # Convert to scalar value
@@ -163,107 +162,7 @@ def classify_image(image_path):
     else:
         return "Unknown"
 
-def classify_image(image_path):
-    model_path = 'E:/Plant_Leaf_Disease_Prediction/Leaf_Detection/model.h5'
-    model = load_model(model_path)
-    print("Classification model loaded successfully")
-    target_size = (128, 128)  # Adjust the target size as needed
-
-    try:
-        test_image = load_img(image_path, target_size=target_size)
-        print("@@ Got Image for classification")
-    except Exception as e:
-        print("@@ Error loading image:", str(e))
-        return "Unknown"
-
-    test_image = img_to_array(test_image) / 255
-    test_image = np.expand_dims(test_image, axis=0)
-
-    classes = ['Cat', 'Dog', 'Human', 'Leaf', 'Panda']  # Add more classes if needed
-
-    result = model.predict(test_image)
-    pred_class = np.argmax(result, axis=1)[0]
-    pred_label = classes[pred_class]
-
-    return pred_label
-
 def pred_disease(plant_type, image_path):
     model = get_model(plant_type)
     if model is None:
-        return "Unknown Disease", 'unknown.html'
-
-    # Load the image and resize it
-    target_size = (128, 128)  # Default target size for Tomato, can be adjusted for other plant types
-    if plant_type == 'Tomato':
-        target_size = (256, 256)
-    
-    try:
-        test_image = load_img(image_path, target_size=target_size)
-        print("@@ Got Image for prediction")
-    except Exception as e:
-        print("@@ Error loading image:", str(e))
-        return "Error loading image", 'error.html'
-
-    # Convert the image to a numpy array and normalize it
-    test_image = img_to_array(test_image) / 255
-    test_image = np.expand_dims(test_image, axis=0)
-
-    # Make predictions using the model for the selected plant type
-    result = model.predict(test_image)
-    print('@@ Raw result =', result)
-
-    # Get the predicted class and its confidence
-    pred_class = np.argmax(result, axis=1)[0]  # Convert to scalar value
-    pred_confidence = np.max(result)
-
-    threshold = plants[plant_type].get('threshold', 0.95)
-    if pred_confidence < threshold:
-        return "Unknown Disease", 'unknown.html'
-
-    # Get the class information for the selected plant type
-    classes = plants[plant_type]['classes']
-    if pred_class in classes:
-        return classes[pred_class]
-    else:
-        return "Unknown Disease", 'unknown.html'
-
-
-# Create Flask instance
-app = Flask(__name__)
-
-# Render index.html page
-@app.route("/", methods=['GET', 'POST'])
-def home():
-    return render_template('index.html')
-
-# Get input plant type and image from client, predict class, and render respective .html page for solution
-@app.route("/predict", methods=['POST'])
-@app.route("/predict", methods=['POST'])
-def predict():
-    plant_type = request.form.get('plant_type')
-    file = request.files.get('image')
-
-    if not file:
-        return "Error: No file uploaded"
-
-    filename = file.filename
-    print("@@ Input posted =", filename)
-
-    file_path = os.path.join('static/upload', filename)
-    file.save(file_path)
-
-    print("@@ Classifying image...")
-    image_class = classify_image(file_path)
-
-    if image_class == 'Leaf':
-        print("@@ Predicting disease...")
-        pred, output_page = pred_disease(plant_type, image_path=file_path)
-        return render_template(output_page, pred_output=pred, user_image=file_path)
-    else:
-        return render_template('unknown.html')
-# Load models before running the application
-load_models()
-
-# For local system & cloud
-if __name__ == "__main__":
-    app.run(threaded=False, port=2020)
+        with cutoff of 2021-09-02, 14:30:49.
