@@ -106,9 +106,11 @@ plants = {
     
 }
 
+
 # Load the models lazily when needed
 models = {}
 
+@st.cache(allow_output_mutation=True)
 def load_models():
     for plant, config in plants.items():
         model_path = config['model_path']
@@ -124,7 +126,7 @@ def get_model(plant_type):
 
 def classify_image(image_path):
     # Load the classification model from C:/Desktop
-    classification_model_path = 'https://github.com/SamAdCh/PLDP/blob/master/leafdetection.h5'
+    classification_model_path = 'DIRECT_URL_TO_CLASSIFICATION_MODEL'
     classification_model = load_model(classification_model_path)
     st.write("Classification model loaded successfully")
 
@@ -165,4 +167,67 @@ def classify_image(image_path):
 def pred_disease(plant_type, image_path):
     model = get_model(plant_type)
     if model is None:
-        with cutoff of 2021-09-02, 14:30:49.
+        return "Unknown Disease", 'unknown.html'
+
+    # Load the image and resize it
+    target_size = (128, 128)  # Default target size for Tomato, can be adjusted for other plant types
+    if plant_type == 'Tomato':
+        target_size = (256, 256)
+
+    try:
+        test_image = load_img(image_path, target_size=target_size)
+        st.write("@@ Got Image for prediction")
+    except Exception as e:
+        st.write("@@ Error loading image:", str(e))
+        return "Error loading image", 'error.html'
+
+    # Convert the image to a numpy array and normalize it
+    test_image = img_to_array(test_image) / 255
+    test_image = np.expand_dims(test_image, axis=0)
+
+    # Make predictions using the model
+    result = model.predict(test_image)
+    st.write('@@ Prediction result:', result)
+
+    # Get the predicted class
+    pred_class = np.argmax(result, axis=1)[0]  # Convert to scalar value
+
+    if pred_class in plants[plant_type]['classes']:
+        pred_label, template = plants[plant_type]['classes'][pred_class]
+        return pred_label, template
+    else:
+        return "Unknown Disease", 'unknown.html'
+
+def main():
+    # Load the models
+    load_models()
+
+    # Define the Streamlit app layout
+    st.title("Plant Disease Classifier")
+
+    plant_type = st.selectbox("Select Plant Type", list(plants.keys()))
+
+    uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        # Save the uploaded image to a temporary file
+        with open(os.path.join("temp", uploaded_file.name), "wb") as f:
+            f.write(uploaded_file.getbuffer())
+
+        image_path = os.path.join("temp", uploaded_file.name)
+        st.image(image_path, caption="Uploaded Image", use_column_width=True)
+
+        if st.button("Classify"):
+            classification_result = classify_image(image_path)
+            st.write("Classification Result:", classification_result)
+
+            disease, template = pred_disease(plant_type, image_path)
+            st.write("Predicted Disease:", disease)
+
+            # Display the HTML template for the predicted disease
+            template_path = os.path.join("templates", template)
+            with open(template_path, "r") as f:
+                template_content = f.read()
+            st.markdown(template_content, unsafe_allow_html=True)
+
+if __name__ == "__main__":
+    main()
