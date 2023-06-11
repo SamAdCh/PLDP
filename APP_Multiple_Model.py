@@ -22,16 +22,16 @@ plants = {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/tomato.h5',
         'threshold': 0.95,
         'classes': {
-            0: ("Tomato - Bacteria Spot Disease", 'Tomato-Bacteria Spot.html'),
-            1: ("Tomato - Early Blight Disease", 'Tomato-Early_Blight.html'),
-            2: ("Tomato - Late Blight Disease", 'Tomato - Late_blight.html'),
-            3: ("Tomato - Leaf Mold Disease", 'Tomato - Leaf_Mold.html'),
-            4: ("Tomato - Septoria Leaf Spot Disease", 'Tomato - Septoria_leaf_spot.html'),
-            5: ("Tomato - Two Spotted Spider Mite Disease", 'Tomato - Two-spotted_spider_mite.html'),
-            6: ("Tomato - Target Spot Disease", 'Tomato - Target_Spot.html'),
-            7: ("Tomato - Tomato Yellow Leaf Curl Virus Disease", 'Tomato - Tomato_Yellow_Leaf_Curl_Virus.html'),
-            8: ("Tomato - Tomato Mosaic Virus Disease", 'Tomato - Tomato_mosaic_virus.html'),
-            9: ("Tomato - Healthy and Fresh", 'Tomato-Healthy.html')
+            0: ("Tomato - Bacteria Spot Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato-Bacteria Spot.html'),
+            1: ("Tomato - Early Blight Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato-Early_Blight.html'),
+            2: ("Tomato - Late Blight Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Late_blight.html'),
+            3: ("Tomato - Leaf Mold Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Leaf_Mold.html'),
+            4: ("Tomato - Septoria Leaf Spot Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Septoria_leaf_spot.html'),
+            5: ("Tomato - Two Spotted Spider Mite Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Two-spotted_spider_mite.html'),
+            6: ("Tomato - Target Spot Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Target_Spot.html'),
+            7: ("Tomato - Tomato Yellow Leaf Curl Virus Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Tomato_Yellow_Leaf_Curl_Virus.html'),
+            8: ("Tomato - Tomato Mosaic Virus Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato - Tomato_mosaic_virus.html'),
+            9: ("Tomato - Healthy and Fresh", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Tomato-Healthy.html')
         }
     },
     'Corn': {
