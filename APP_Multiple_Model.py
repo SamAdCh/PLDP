@@ -38,69 +38,69 @@ plants = {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/corn.h5',
         'threshold': 0.8,
         'classes': {
-            0: ("Corn - Blight Disease", 'Corn - Blight.html'),
-            1: ("Corn - Common Rust Disease", 'Corn - Common_Rust.html'),
-            2: ("Corn - Gray Leaf Spot Disease", 'Corn - Gray_Leaf_Spot.html'),
-            3: ("Corn - Healthy and Fresh", 'Corn - Healthy.html')
+            0: ("Corn - Blight Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Corn - Blight.html'),
+            1: ("Corn - Common Rust Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Corn - Common_Rust.html'),
+            2: ("Corn - Gray Leaf Spot Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Corn - Gray_Leaf_Spot.html'),
+            3: ("Corn - Healthy and Fresh", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Corn - Healthy.html')
         }
     },
     'Potato': {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/potato.h5',
         'threshold': 0.95,
         'classes': {
-            0: ("Potato - Early Blight Disease", 'Potato_Early_Blight.html'),
-            1: ("Potato - Healthy", 'Potato_Healthy.html'),
-            2: ("Potato - Late Blight", 'Potato_Late_Blight.html')
+            0: ("Potato - Early Blight Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Potato_Early_Blight.html'),
+            1: ("Potato - Healthy", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Potato_Healthy.html'),
+            2: ("Potato - Late Blight", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Potato_Late_Blight.html')
         }
     },
     'Mango': {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/mango.h5',
         'threshold': 0.95,
         'classes': {
-            0: ("Mango - Anthracnose Disease", 'Mango - Anthracnose.html'),
-            1: ("Mango - Bacterial Canker Disease", 'Mango - Bacterial_Canker.html'),
-            2: ("Mango - Cutting Weevil Disease", 'Mango - Cutting_Weevil.html'),
-            3: ("Mango - Die Back Disease", 'Mango - Die_Back.html'),
-            4: ("Mango - Gall Midge Disease", 'Mango - Gall_Midge.html'),
-            5: ("Mango - Healthy", 'Mango - Healthy.html'),
-            6: ("Mango - Powdery Mildew Disease", 'Mango - Powdery_Mildew.html'),
-            7: ("Mango - Sooty Mould Disease", 'Mango - Sooty_Mould.html')
+            0: ("Mango - Anthracnose Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Anthracnose.html'),
+            1: ("Mango - Bacterial Canker Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Bacterial_Canker.html'),
+            2: ("Mango - Cutting Weevil Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Cutting_Weevil.html'),
+            3: ("Mango - Die Back Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Die_Back.html'),
+            4: ("Mango - Gall Midge Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Gall_Midge.html'),
+            5: ("Mango - Healthy", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Healthy.html'),
+            6: ("Mango - Powdery Mildew Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Powdery_Mildew.html'),
+            7: ("Mango - Sooty Mould Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Mango - Sooty_Mould.html')
         }
     },
     'Pepper': {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/pepper.h5',
         'threshold': 0.05,
         'classes': {
-            0: ("Pepper Bell Bacterial Spot", 'Pepper_Bell_Bacterial_spot.html'),
-            1: ("Pepper Bell Healthy", 'Pepper_Bell_Healthy.html'),
+            0: ("Pepper Bell Bacterial Spot", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Pepper_Bell_Bacterial_spot.html'),
+            1: ("Pepper Bell Healthy", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Pepper_Bell_Healthy.html'),
             }
         },
     'Apple': {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/apple.h5',
         'threshold': 0.95,
         'classes': {
-            0: ("Apple - Black Rot", 'Apple - Black_Rot.html'),
-            1: ("Apple - Healthy", 'Apple - Healthy.html'),
-            2: ("Apple - Scab", 'Apple - Scab.html'),
-            3: ("Apple - Cedar Apple Rust", 'Apple - Cedar_Apple_Rust.html')
+            0: ("Apple - Black Rot", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Apple - Black_Rot.html'),
+            1: ("Apple - Healthy", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Apple - Healthy.html'),
+            2: ("Apple - Scab", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Apple - Scab.html'),
+            3: ("Apple - Cedar Apple Rust", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Apple - Cedar_Apple_Rust.html')
         }
     },
     'Strawberry': {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/strawberry.h5',
         'threshold': 0.95,
         'classes': {
-            0: ("Strawberry - Healthy", 'Strawberry - Healthy.html'),
-            1: ("Strawberry - Leaf Scorch Disease", 'Strawberry - Leaf_Scorch.html')
+            0: ("Strawberry - Healthy", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Strawberry - Healthy.html'),
+            1: ("Strawberry - Leaf Scorch Disease", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Strawberry - Leaf_Scorch.html')
         }
     },
     'Rice': {
         'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/rice.h5',
         'threshold': 0.8,
         'classes': {
-            0: ("Rice - Brown Spot", 'Rice - BrownSpot.html'),
-            1: ("Rice - Healthy", 'Rice - Healthy.html'),
-            2: ("Rice - Hispa", 'Rice - Hispa.html'),
-            3: ("Rice - Leaf Blast", 'Rice - LeafBlast.html')
+            0: ("Rice - Brown Spot", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Rice - BrownSpot.html'),
+            1: ("Rice - Healthy", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Rice - Healthy.html'),
+            2: ("Rice - Hispa", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Rice - Hispa.html'),
+            3: ("Rice - Leaf Blast", 'https://github.com/SamAdCh/PLDP/tree/master/templates/Rice - LeafBlast.html')
         }
     }
     
