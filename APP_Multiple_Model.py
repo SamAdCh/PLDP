@@ -20,7 +20,7 @@ conn.close()
 # Define the plant types and their corresponding models
 plants = {
     'Tomato': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Tomato_Leaf_Diseases_Prediction/InceptionV3_256.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/tomato.h5',
         'threshold': 0.95,
         'classes': {
             0: ("Tomato - Bacteria Spot Disease", 'Tomato-Bacteria Spot.html'),
@@ -36,7 +36,7 @@ plants = {
         }
     },
     'Corn': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Corn_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/corn.h5',
         'threshold': 0.8,
         'classes': {
             0: ("Corn - Blight Disease", 'Corn - Blight.html'),
@@ -46,7 +46,7 @@ plants = {
         }
     },
     'Potato': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Potato_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/potato.h5',
         'threshold': 0.95,
         'classes': {
             0: ("Potato - Early Blight Disease", 'Potato_Early_Blight.html'),
@@ -55,7 +55,7 @@ plants = {
         }
     },
     'Mango': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Mango_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/mango.h5',
         'threshold': 0.95,
         'classes': {
             0: ("Mango - Anthracnose Disease", 'Mango - Anthracnose.html'),
@@ -69,7 +69,7 @@ plants = {
         }
     },
     'Pepper': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Pepper_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/pepper.h5',
         'threshold': 0.05,
         'classes': {
             0: ("Pepper Bell Bacterial Spot", 'Pepper_Bell_Bacterial_spot.html'),
@@ -77,7 +77,7 @@ plants = {
             }
         },
     'Apple': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Apple_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/apple.h5',
         'threshold': 0.95,
         'classes': {
             0: ("Apple - Black Rot", 'Apple - Black_Rot.html'),
@@ -87,7 +87,7 @@ plants = {
         }
     },
     'Strawberry': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Strawberry_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/strawberry.h5',
         'threshold': 0.95,
         'classes': {
             0: ("Strawberry - Healthy", 'Strawberry - Healthy.html'),
@@ -95,7 +95,7 @@ plants = {
         }
     },
     'Rice': {
-        'model_path': 'E:/Plant_Leaf_Disease_Prediction/Rice_Leaf_Diseases_Prediction/model.h5',
+        'model_path': 'https://github.com/SamAdCh/PLDP/blob/master/rice.h5',
         'threshold': 0.8,
         'classes': {
             0: ("Rice - Brown Spot", 'Rice - BrownSpot.html'),
@@ -125,7 +125,7 @@ def get_model(plant_type):
     
 def classify_image(image_path):
     # Load the classification model from C:/Desktop
-    classification_model_path = 'C:/Desktop/model.h5'
+    classification_model_path = 'https://github.com/SamAdCh/PLDP/blob/master/leafdetection.h5'
     classification_model = load_model(classification_model_path)
     print("Classification model loaded successfully")
 
